@@ -1,0 +1,9 @@
+{
+    "app" : "Job Search System",
+    "version" : "1.0",
+    "title" : "Job Search System",
+    "apiurl" : "http://localhost:8080/jobsearch/",
+    "loginLogo":"assets/images/logo.png",
+    "welcomeText": "Welcome To Job Search System"
+}
+
