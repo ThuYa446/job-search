@@ -61,8 +61,8 @@ export class AppComponent implements OnInit {
     if (type === false) {this.ics.sendBean({t1: 'custom-loading-off'}); }
   }
 
-  init() {
-    this.http.doGet('assets/json/config.json').subscribe(
+  async init() {
+     await this.http.doGet('assets/json/config.json').subscribe(
       data => {
         this.ics.title = data.title;
         this.ics.app = data.app;

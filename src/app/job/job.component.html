@@ -10,20 +10,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Developer</td>
-            <td>Male</td>
-            <td>123000</td>
-          </tr>
-          <tr>
-            <td>Project Manager</td>
-            <td>Male</td>
-            <td>123000</td>
-          </tr>
-          <tr>
-            <td>Senior Developer</td>
-            <td>Male</td>
-            <td>123000</td>
+          <tr *ngFor="let obj of _jobList">
+            <td>{{obj.jobTitle}}</td>
+            <td>{{obj.gender}}</td>
+            <td>{{obj.salary}}</td>
           </tr>
         </tbody>
     </table>

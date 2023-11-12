@@ -52,7 +52,7 @@
                                     </div> 
                                 </td>
                                 <td style="padding: 10px;">
-                                    <select  class="form-control input-sm" [(ngModel)]="obj.sorting"  (change)="sortFilter($event.target.value)" [ngModelOptions]="{standalone: true}">
+                                    <select  class="form-control input-sm" [(ngModel)]="obj.sorting" (click)="getIndex(obj)" (change)="sortFilter($event.target.value)" [ngModelOptions]="{standalone: true}">
                                         <option *ngFor="let _dt of ref._lov1.sort" value="{{_dt.value}}" >{{_dt.caption}}</option>
                                     </select>
                                 </td>
