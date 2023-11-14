@@ -30,13 +30,13 @@ export class AdvSearchComponent implements OnInit {
 
   initSearchObj(){
     this._count = this.rpFields.length;
-    let initvalue = {"caption":"","value":"","type":"","condition":"","sorting":"","isBetween":false,"text1":"","text2":"","fields":[]};
+    let initvalue = {"caption":"","value":"","type":"","condition":"","sorting":"","between":false,"text1":"","text2":"","fields":[]};
     initvalue.caption = this.rpFields[0].caption;
     initvalue.value = this.rpFields[0].value;
     initvalue.type = this.rpFields[0].type;
     initvalue.condition = this.rpFields[0].condition;
     initvalue.sorting = this.rpFields[0].sorting;
-    initvalue.isBetween = this.rpFields[0].isBetween;
+    initvalue.between = this.rpFields[0].between;
     initvalue.text1 = this.rpFields[0].text1;
     initvalue.text2 = this.rpFields[0].text2;
     initvalue.fields = this.rpFields;
@@ -65,13 +65,13 @@ export class AdvSearchComponent implements OnInit {
       }
     }    
     if (this._count > 1 && _newObj != undefined) {
-      let k = { "value": "", "caption": "", "type": "", "condition": "","sorting":"", "isBetween":false, "text1": "", "text2": "", "fields": [] };
+      let k = { "value": "", "caption": "", "type": "", "condition": "","sorting":"", "between":false, "text1": "", "text2": "", "fields": [] };
       k.value = _newObj[0].value;
       k.caption = _newObj[0].caption;
       k.type = _newObj[0].type;
       k.condition = _newObj[0].condition;
       k.sorting = _newObj[0].sorting;
-      k.isBetween = _newObj[0].isBetween;
+      k.between = _newObj[0].between;
       k.text1 = _newObj[0].text1;
       k.text2 = _newObj[0].text2;
       k.fields = _newObj;
@@ -96,13 +96,13 @@ export class AdvSearchComponent implements OnInit {
         }
       }
       if(flag){
-        let k = { "value": "", "caption": "", "type": "", "condition": "","sorting":"","isBetween":"", "text1": "", "text2": ""};
+        let k = { "value": "", "caption": "", "type": "", "condition": "","sorting":"","between":false, "text1": "", "text2": ""};
         k.value = p.value;
         k.caption = p.caption;
         k.type = p.type;
         k.condition = p.condition;
         k.sorting = p.sorting;
-        k.isBetween = p.isBetween;
+        k.between = p.between;
         k.text1 = p.text1;
         k.text2 = p.text2;
         this._advFields[(this._advFields.length - 1)].fields.push(k);
@@ -126,7 +126,7 @@ export class AdvSearchComponent implements OnInit {
           this._advFields[this._index].caption = this.rpFields[i].caption;
           this._advFields[this._index].type = this.rpFields[i].type;
           this._advFields[this._index].condition = this.rpFields[i].condition; 
-          this._advFields[this._index].isBetween = this.rpFields[i].isBetween; 
+          this._advFields[this._index].between = this.rpFields[i].between; 
           this._advFields[this._index].text1 = this.rpFields[i].text1;
           this._advFields[this._index].text2 = this.rpFields[i].text2;    
       }
@@ -136,9 +136,9 @@ export class AdvSearchComponent implements OnInit {
   enableFilter(sign){
     let index = this._index;
     if(sign=="bt"){
-      this._advFields[index].isBetween = true;
+      this._advFields[index].between = true;
     }else{
-      this._advFields[index].isBetween = false;
+      this._advFields[index].between = false;
     }
   }
 
@@ -154,14 +154,15 @@ export class AdvSearchComponent implements OnInit {
   }
 
   advSearch(){
+    this._searchData =[];
     for (let i = 0; i < this._advFields.length; i++) {
-      let obj = { "value": "", "caption": "", "type": "", "condition": "","sorting":"","isBetween":"", "text1": "", "text2": ""};
+      let obj = { "value": "", "caption": "", "type": "", "condition": "","sorting":"","between":false, "text1": "", "text2": ""};
       obj.value = this._advFields[i].value;
       obj.caption = this._advFields[i].caption;
       obj.type = this._advFields[i].type;
       obj.condition = this._advFields[i].condition;
       obj.sorting = this._advFields[i].sorting;
-      obj.isBetween = this._advFields[i].isBetween;
+      obj.between = this._advFields[i].between;
       obj.text1 = this._advFields[i].text1;
       obj.text2 = this._advFields[i].text2;
       this._searchData.push(obj);

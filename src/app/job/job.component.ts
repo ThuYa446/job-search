@@ -12,9 +12,9 @@ export class JobComponent implements OnInit {
   _jobList = [];
   _searchData = [];
   _advFields : any  = [
-    {"caption":"Job Title","value":"jobTitle","type":"string","isBetween":false,"text1":"","text2":"","condition":"stw","sorting":""},
-    {"caption":"Gender","value":"gender","type":"string","isBetween":false,"text1":"","text2":"","condition":"stw","sorting":""},
-    {"caption":"Salary","value":"salary","type":"numeric","isBetween":false,"text1":"","text2":"","condition":"gte","sorting":""}
+    {"caption":"Job Title","value":"jobTitle","type":"string","between":false,"text1":"","text2":"","condition":"stw","sorting":""},
+    {"caption":"Gender","value":"gender","type":"string","between":false,"text1":"","text2":"","condition":"stw","sorting":""},
+    {"caption":"Salary","value":"salary","type":"numeric","between":false,"text1":"","text2":"","condition":"gte","sorting":""}
   ]
    
   constructor(private http: HttpClientService,private ics: IntercomService) { 
@@ -49,9 +49,12 @@ export class JobComponent implements OnInit {
     this._searchData = event;
     //https://stackoverflow.com/questions/4614255/rest-url-design-for-greater-than-less-than-operations
     let url = this.ics.apiurl+"/job_search?"+this.preparedData();
+    this._jobList = [];
     this.http.doGet(url).subscribe(
       data => {
-       
+        if(data.responseMessage != "0014"){
+          this._jobList = data.jobList;
+        }
       }
     );
   }

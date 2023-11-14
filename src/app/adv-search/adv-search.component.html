@@ -21,7 +21,7 @@
                                 <td style="padding: 10px;">
                                     <button class="btn btn-sm btn-default" type="button" (click)="removeFilter(obj)" title="Remove Filter" >
                                         <span style = "font-size:16px; color:#ab0e0e;">
-                                            <i class="fa fa-minus"></i>
+                                            <i class="fa fa-trash-o" style="font-size: larger;"></i>
                                         </span>
                                     </button>
                                 </td>
@@ -39,15 +39,15 @@
                                     </select>
                                 </td>
                                 <td style="padding: 10px;">
-                                    <input *ngIf="obj.type=='string' && obj.isBetween!=true" type="text" class="form-control input-sm" [(ngModel)]="obj.text1" [ngModelOptions]="{standalone: true}">
-                                    <input *ngIf="obj.type=='numeric' && obj.isBetween!=true" type="number" class="form-control input-sm" [(ngModel)]="obj.text1" [ngModelOptions]="{standalone: true}">
+                                    <input *ngIf="obj.type=='string' && obj.between!=true" type="text" class="form-control input-sm" [(ngModel)]="obj.text1" [ngModelOptions]="{standalone: true}">
+                                    <input *ngIf="obj.type=='numeric' && obj.between!=true" type="number" class="form-control input-sm" [(ngModel)]="obj.text1" [ngModelOptions]="{standalone: true}">
                 
-                                    <div *ngIf="obj.type=='numeric' && obj.isBetween==true" class="input-group col-md-12">
+                                    <div *ngIf="obj.type=='numeric' && obj.between==true" class="input-group col-md-12">
                                         <div class="col-md-6">
-                                            <input  *ngIf="obj.type=='numeric' && obj.isBetween==true" type="number" class="form-control input-sm" [(ngModel)]="obj.text1"  [ngModelOptions]="{standalone: true}"> 
+                                            <input  *ngIf="obj.type=='numeric' && obj.between==true" type="number" class="form-control input-sm" [(ngModel)]="obj.text1"  [ngModelOptions]="{standalone: true}"> 
                                         </div>
                                         <div class="col-md-6">
-                                            <input  *ngIf="obj.type=='numeric' && obj.isBetween==true" type="number" class="form-control input-sm" [(ngModel)]="obj.text2"  [ngModelOptions]="{standalone: true}"> 
+                                            <input  *ngIf="obj.type=='numeric' && obj.between==true" type="number" class="form-control input-sm" [(ngModel)]="obj.text2"  [ngModelOptions]="{standalone: true}"> 
                                         </div>
                                     </div> 
                                 </td>
