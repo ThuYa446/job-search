@@ -1,6 +1,7 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#advsearchModal" style="float: right;">
-    Advance Search
+    Advance Search 
+    <i class="fa fa-search" style="font-size: medium;"></i> 
 </button>
 
   <!-- Modal -->
@@ -15,7 +16,8 @@
                 </div> 
                 <div class="modal-body">
                     <div class="container">
-                        <button class="btn  btn-sm btn-primary" type="button" (click)="addFilter()" >Add Filter</button>&nbsp;
+                        <button class="btn  btn-sm btn-primary" type="button" (click)="addFilter()"> <i class="fa fa-plus" style="font-size: medium;"></i> &nbsp;Add Filter</button>&nbsp;
+                        <button class="btn  btn-sm btn-danger" type="button" (click)="clearFilter()"><i class="fa fa-trash-o" style="font-size: larger;"></i> &nbsp;Clear Filter</button>&nbsp;
                         <table>
                             <tr *ngFor="let obj of _advFields" >
                                 <td style="padding: 10px;">

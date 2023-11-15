@@ -171,4 +171,13 @@ export class AdvSearchComponent implements OnInit {
     $("#advsearchModal").modal('hide');
   }
 
+  clearFilter() {
+    this._count =this.rpFields.length;
+    this._advFields = [];
+    this._temp = [];
+    this._value = { "id": "" };
+    this._fildName = [];
+    this.initSearchObj();
+  }
+
 }

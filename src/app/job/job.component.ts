@@ -45,15 +45,31 @@ export class JobComponent implements OnInit {
     );
   }
 
+  showloading(type) {
+    if (type === true) {this.ics.sendBean({t1: 'custom-loading'}); }
+    if (type === false) {this.ics.sendBean({t1: 'custom-loading-off'}); }
+  }
+
+  showCustomMsg(msg, type) {
+    if ( type === true) {this.ics.sendBean({t1: 'custom-msg', t2: msg, t3: 'Information' }); }
+    if ( type === false) {this.ics.sendBean({t1: 'custom-msg', t2: msg, t3: 'Error' }); }
+    if ( type === undefined) {this.ics.sendBean({t1: 'custom-msg', t2: msg, t3: 'Warning' }); }
+    if ( type === null) {this.ics.sendBean({t1: 'custom-msg', t2: msg, t3: 'Success' }); }
+  }
+
   changeAdvSearch(event){
     this._searchData = event;
     //https://stackoverflow.com/questions/4614255/rest-url-design-for-greater-than-less-than-operations
     let url = this.ics.apiurl+"/job_search?"+this.preparedData();
     this._jobList = [];
+    this.showloading(true);
     this.http.doGet(url).subscribe(
       data => {
-        if(data.responseMessage != "0014"){
+        this.showloading(false)
+        if(data.jobList.length != 0){
           this._jobList = data.jobList;
+        }else {
+          this.showCustomMsg(data.responseMessage,true);
         }
       }
     );

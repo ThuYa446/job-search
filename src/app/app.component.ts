@@ -69,7 +69,6 @@ export class AppComponent implements OnInit {
         this.ics.version = data.version;
         this.ics.apiurl = data.apiurl;
         this.title.setTitle(data.title);
-        this.ics.setEnglish(); //default language when project load
       }
     );
   }
