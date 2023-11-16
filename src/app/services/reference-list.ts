@@ -17,5 +17,8 @@ export class RpReferences {
     _lov1: any = {
       "sort": [{ "value": "asc", "caption": "Ascending" }, 
                { "value": "desc", "caption": "Descending" }],
+
+      "sort_alpha": [{ "value": "asc", "caption": "A-Z" }, 
+               { "value": "desc", "caption": "Z-A" }],
     }
 }
